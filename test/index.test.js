@@ -29,10 +29,30 @@ test('completeAssign: function', t => {
   t.is(target.foo(), 'bar');
 });
 
-test('completeAssign: class', t => {
+test('completeAssign: class and plain object', t => {
   class Foo {}
   completeAssign(Foo.prototype, {
     foo: 'bar'
   });
   t.is(new Foo().foo, 'bar');
+});
+
+test('completeAssign: class & getter', t => {
+  class Foo {}
+  completeAssign(Foo.prototype, {
+    get foo() {
+      return 'bar';
+    }
+  });
+  t.is(new Foo().foo, 'bar');
+});
+
+test('completeAssign: class & function', t => {
+  class Foo {}
+  completeAssign(Foo.prototype, {
+    foo() {
+      return 'bar';
+    }
+  });
+  t.is(new Foo().foo(), 'bar');
 });
