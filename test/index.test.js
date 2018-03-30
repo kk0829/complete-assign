@@ -20,11 +20,19 @@ test('completeAssign: getter', t => {
 });
 
 test('completeAssign: function', t => {
-	let target = {};
-	completeAssign(target, {
-		foo() {
-			return 'bar';
-		}
-	});
-	t.is(target.foo(), 'bar');
+  let target = {};
+  completeAssign(target, {
+    foo() {
+      return 'bar';
+    }
+  });
+  t.is(target.foo(), 'bar');
+});
+
+test('completeAssign: class', t => {
+  class Foo {}
+  completeAssign(Foo.prototype, {
+    foo: 'bar'
+  });
+  t.is(new Foo().foo, 'bar');
 });
