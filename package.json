@@ -1,0 +1,27 @@
+{
+  "name": "complete-assign",
+  "version": "0.0.1",
+  "description": "completeAssign",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava --verbose --no-cache",
+    "test:watch": "nyc ava --verbose --watch --no-cache",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov",
+    "report:html": "nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kk0829/complete-assign.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kk0829/complete-assign/issues"
+  },
+  "homepage": "https://github.com/kk0829/complete-assign#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^11.6.0"
+  }
+}
